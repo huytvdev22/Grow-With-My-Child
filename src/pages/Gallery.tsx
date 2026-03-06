@@ -7,24 +7,24 @@ export function Gallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
 
   return (
-    <div className="space-y-12 pb-24">
+    <div className="space-y-8 pb-24 sm:space-y-12">
       <header>
-        <h1 className="font-serif text-4xl font-medium tracking-tight text-stone-900">
+        <h1 className="font-serif text-3xl font-medium tracking-tight text-stone-900 sm:text-4xl">
           Memory Gallery
         </h1>
-        <p className="mt-2 text-lg text-stone-500">
+        <p className="mt-2 text-base text-stone-500 sm:text-lg">
           A collection of beautiful moments frozen in time.
         </p>
       </header>
 
-      <div className="columns-1 gap-6 sm:columns-2 lg:columns-3">
+      <div className="columns-1 gap-4 sm:columns-2 sm:gap-6 lg:columns-3">
         {galleryPhotos.map((photo, index) => (
           <motion.div
             key={photo.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="group relative mb-6 overflow-hidden rounded-3xl bg-stone-100 shadow-sm ring-1 ring-stone-200/50"
+            className="group relative mb-4 overflow-hidden rounded-2xl bg-stone-100 shadow-sm ring-1 ring-stone-200/50 sm:mb-6 sm:rounded-3xl"
           >
             <img
               src={photo.url}
@@ -36,15 +36,15 @@ export function Gallery() {
             
             <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-stone-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <h3 className="font-serif text-xl font-medium">{photo.title}</h3>
+            <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:p-6">
+              <h3 className="font-serif text-lg font-medium sm:text-xl">{photo.title}</h3>
             </div>
 
             <button
               onClick={() => setSelectedPhoto(photo.url)}
-              className="absolute right-4 top-4 rounded-full bg-white/20 p-2 text-white backdrop-blur-md transition-colors hover:bg-white/40 opacity-0 group-hover:opacity-100"
+              className="absolute right-3 top-3 rounded-full bg-white/20 p-2 text-white backdrop-blur-md transition-colors hover:bg-white/40 opacity-0 group-hover:opacity-100 sm:right-4 sm:top-4"
             >
-              <ZoomIn className="h-5 w-5" />
+              <ZoomIn className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
           </motion.div>
         ))}
@@ -61,9 +61,9 @@ export function Gallery() {
           >
             <button
               onClick={() => setSelectedPhoto(null)}
-              className="absolute right-8 top-8 rounded-full bg-white/10 p-3 text-white backdrop-blur-md transition-colors hover:bg-white/20"
+              className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white backdrop-blur-md transition-colors hover:bg-white/20 sm:right-8 sm:top-8 sm:p-3"
             >
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
             
             <motion.img

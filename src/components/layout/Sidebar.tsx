@@ -11,9 +11,9 @@ const navItems = [
   { name: 'Letters', href: '/letters', icon: Mail },
 ];
 
-export function Sidebar() {
+export function Sidebar({ className, onClick }: { className?: string; onClick?: () => void }) {
   return (
-    <aside className="fixed inset-y-0 left-0 z-50 w-64 border-r border-stone-200 bg-stone-50/50 backdrop-blur-xl">
+    <aside className={cn("w-64 border-r border-stone-200 bg-stone-50/50 backdrop-blur-xl", className)}>
       <div className="flex h-full flex-col gap-6 p-6">
         <div className="flex items-center gap-3 px-2">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-100 text-orange-600">
@@ -29,6 +29,7 @@ export function Sidebar() {
             <NavLink
               key={item.name}
               to={item.href}
+              onClick={onClick}
               className={({ isActive }) =>
                 cn(
                   'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors',

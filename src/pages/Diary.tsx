@@ -15,13 +15,13 @@ export function Diary() {
   );
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 pb-24 sm:space-y-12">
       <header className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="font-serif text-4xl font-medium tracking-tight text-stone-900">
+          <h1 className="font-serif text-3xl font-medium tracking-tight text-stone-900 sm:text-4xl">
             Parent's Diary
           </h1>
-          <p className="mt-2 text-lg text-stone-500">
+          <p className="mt-2 text-base text-stone-500 sm:text-lg">
             Daily thoughts, little moments, and big feelings.
           </p>
         </div>
@@ -41,7 +41,7 @@ export function Diary() {
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="flex h-full min-h-[240px] flex-col items-center justify-center gap-4 rounded-3xl border-2 border-dashed border-stone-300 bg-stone-50/50 p-8 text-stone-500 transition-colors hover:border-orange-300 hover:bg-orange-50 hover:text-orange-600"
+          className="flex h-full min-h-[200px] flex-col items-center justify-center gap-4 rounded-3xl border-2 border-dashed border-stone-300 bg-stone-50/50 p-6 text-stone-500 transition-colors hover:border-orange-300 hover:bg-orange-50 hover:text-orange-600 sm:min-h-[240px] sm:p-8"
         >
           <div className="rounded-full bg-white p-4 shadow-sm ring-1 ring-stone-200/50">
             <PenLine className="h-6 w-6" />
@@ -55,23 +55,23 @@ export function Diary() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-stone-200/50 transition-all hover:-translate-y-1 hover:shadow-md"
+            className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl bg-white p-6 shadow-sm ring-1 ring-stone-200/50 transition-all hover:-translate-y-1 hover:shadow-md sm:p-8"
           >
-            <div className="absolute right-0 top-0 h-32 w-32 -translate-y-1/2 translate-x-1/2 rounded-full bg-orange-50 opacity-0 transition-opacity group-hover:opacity-100" />
+            <div className="absolute right-0 top-0 h-24 w-24 -translate-y-1/2 translate-x-1/2 rounded-full bg-orange-50 opacity-0 transition-opacity group-hover:opacity-100 sm:h-32 sm:w-32" />
             
             <div className="relative z-10">
-              <div className="mb-4 flex items-center gap-2 text-sm font-medium text-orange-600">
+              <div className="mb-4 flex items-center gap-2 text-xs font-medium text-orange-600 sm:text-sm">
                 {format(new Date(entry.date), 'EEEE, MMMM d')}
               </div>
-              <h3 className="mb-4 font-serif text-2xl font-medium leading-tight text-stone-900">
+              <h3 className="mb-3 font-serif text-xl font-medium leading-tight text-stone-900 sm:mb-4 sm:text-2xl">
                 {entry.title}
               </h3>
-              <p className="line-clamp-4 leading-relaxed text-stone-600">
+              <p className="line-clamp-4 text-sm leading-relaxed text-stone-600 sm:text-base">
                 {entry.content}
               </p>
             </div>
             
-            <div className="relative z-10 mt-8 flex items-center justify-between border-t border-stone-100 pt-4 text-sm text-stone-400">
+            <div className="relative z-10 mt-6 flex items-center justify-between border-t border-stone-100 pt-4 text-xs text-stone-400 sm:mt-8 sm:text-sm">
               <span>{format(new Date(entry.date), 'h:mm a')}</span>
               <button className="font-medium text-orange-600 opacity-0 transition-opacity group-hover:opacity-100">
                 Read more &rarr;
@@ -82,7 +82,7 @@ export function Diary() {
       </div>
 
       {filteredEntries.length === 0 && (
-        <div className="flex flex-col items-center justify-center py-24 text-center">
+        <div className="flex flex-col items-center justify-center py-16 text-center sm:py-24">
           <div className="mb-4 rounded-full bg-stone-100 p-4">
             <Search className="h-8 w-8 text-stone-400" />
           </div>

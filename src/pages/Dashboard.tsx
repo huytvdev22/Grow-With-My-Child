@@ -8,18 +8,18 @@ export function Dashboard() {
   const age = formatDistanceToNow(new Date(childProfile.birthDate));
 
   return (
-    <div className="space-y-12">
-      <header className="flex items-end justify-between">
+    <div className="space-y-8 sm:space-y-12">
+      <header className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <h1 className="font-serif text-4xl font-medium tracking-tight text-stone-900">
+          <h1 className="font-serif text-3xl font-medium tracking-tight text-stone-900 sm:text-4xl">
             Welcome back, Mama
           </h1>
-          <p className="mt-2 text-lg text-stone-500">
+          <p className="mt-2 text-base text-stone-500 sm:text-lg">
             Here's what's happening in {childProfile.name}'s world.
           </p>
         </div>
-        <div className="flex gap-3">
-          <Button className="bg-orange-500 text-white hover:bg-orange-600">
+        <div className="flex w-full gap-3 sm:w-auto">
+          <Button className="w-full bg-orange-500 text-white hover:bg-orange-600 sm:w-auto">
             <Plus className="mr-2 h-4 w-4" />
             Add Memory
           </Button>
@@ -37,8 +37,8 @@ export function Dashboard() {
           <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-stone-900/20 to-transparent" />
         </div>
         
-        <div className="relative flex items-end gap-6 p-8 pt-48 sm:p-12">
-          <div className="h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-white/20 bg-white shadow-xl backdrop-blur-sm">
+        <div className="relative flex flex-col items-start gap-6 p-6 pt-32 sm:flex-row sm:items-end sm:p-12 sm:pt-48">
+          <div className="h-24 w-24 shrink-0 overflow-hidden rounded-full border-4 border-white/20 bg-white shadow-xl backdrop-blur-sm sm:h-32 sm:w-32">
             <img
               src={childProfile.photo}
               alt={childProfile.name}
@@ -47,10 +47,10 @@ export function Dashboard() {
             />
           </div>
           <div className="pb-2 text-white">
-            <h2 className="font-serif text-5xl font-semibold tracking-tight">
+            <h2 className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
               {childProfile.name}
             </h2>
-            <div className="mt-3 flex items-center gap-4 text-white/80">
+            <div className="mt-3 flex flex-wrap items-center gap-2 sm:gap-4 text-white/80">
               <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-sm font-medium backdrop-blur-md">
                 <Heart className="h-4 w-4 text-orange-400" />
                 {age} old

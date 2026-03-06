@@ -14,17 +14,17 @@ import { Ruler, Scale } from 'lucide-react';
 
 export function GrowthTracker() {
   return (
-    <div className="space-y-12 pb-24">
+    <div className="space-y-8 pb-24 sm:space-y-12">
       <header>
-        <h1 className="font-serif text-4xl font-medium tracking-tight text-stone-900">
+        <h1 className="font-serif text-3xl font-medium tracking-tight text-stone-900 sm:text-4xl">
           Growth Tracker
         </h1>
-        <p className="mt-2 text-lg text-stone-500">
+        <p className="mt-2 text-base text-stone-500 sm:text-lg">
           Watching them grow, one inch at a time.
         </p>
       </header>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,8 +38,8 @@ export function GrowthTracker() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="font-serif text-4xl font-semibold text-stone-900">
-                {growthData[growthData.length - 1].weight} <span className="text-xl text-stone-400">kg</span>
+              <div className="font-serif text-3xl font-semibold text-stone-900 sm:text-4xl">
+                {growthData[growthData.length - 1].weight} <span className="text-lg text-stone-400 sm:text-xl">kg</span>
               </div>
               <p className="mt-1 text-xs text-stone-500">
                 +1.3kg from last month
@@ -61,8 +61,8 @@ export function GrowthTracker() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="font-serif text-4xl font-semibold text-stone-900">
-                {growthData[growthData.length - 1].height} <span className="text-xl text-stone-400">cm</span>
+              <div className="font-serif text-3xl font-semibold text-stone-900 sm:text-4xl">
+                {growthData[growthData.length - 1].height} <span className="text-lg text-stone-400 sm:text-xl">cm</span>
               </div>
               <p className="mt-1 text-xs text-stone-500">
                 +2cm from last month
@@ -79,12 +79,12 @@ export function GrowthTracker() {
       >
         <Card className="border-stone-200/60 bg-white shadow-sm">
           <CardHeader>
-            <CardTitle className="font-serif text-2xl font-medium">Weight Progress</CardTitle>
+            <CardTitle className="font-serif text-xl font-medium sm:text-2xl">Weight Progress</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-[300px] w-full">
+            <div className="h-[250px] w-full sm:h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={growthData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                <LineChart data={growthData} margin={{ top: 5, right: 10, bottom: 5, left: -20 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
                   <XAxis
                     dataKey="month"
@@ -126,12 +126,12 @@ export function GrowthTracker() {
       >
         <Card className="border-stone-200/60 bg-white shadow-sm">
           <CardHeader>
-            <CardTitle className="font-serif text-2xl font-medium">Height Progress</CardTitle>
+            <CardTitle className="font-serif text-xl font-medium sm:text-2xl">Height Progress</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-[300px] w-full">
+            <div className="h-[250px] w-full sm:h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={growthData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                <LineChart data={growthData} margin={{ top: 5, right: 10, bottom: 5, left: -20 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
                   <XAxis
                     dataKey="month"
